@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Clock</title>
+    <style>
+      body {
+        margin: 0;
+        background-image: url(https://w0.peakpx.com/wallpaper/101/20/HD-wallpaper-clock-dial-fractal-hologram-dark.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      #clock-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        font-size: 4rem;
+        height: 100vh;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock-container">
+      <div id="clock">00:00:00</div>
+    </div>
+    <script>
+      function updateClock() {
+        const now = new Date(); // Gets the current date and time
+        const hours = String(now.getHours()).padStart(2, "0"); // Gets the current hours and pads with leading zero if needed
+        const minutes = String(now.getMinutes()).padStart(2, "0"); // Gets the current minutes and pads with leading zero if needed
+        const seconds = String(now.getSeconds()).padStart(2, "0"); // Gets the current seconds and pads with leading zero if needed
+        document.getElementById(
+          "clock"
+        ).textContent = `${hours}:${minutes}:${seconds}`; // Updates the clock display
+      }
+
+      setInterval(updateClock, 1000); // Calls updateClock every 1000 milliseconds (1 second)
+      updateClock(); // Initial call to display clock immediately on page load
+    </script>
+  </body>
+</html>
